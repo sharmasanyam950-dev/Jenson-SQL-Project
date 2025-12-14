@@ -1,119 +1,64 @@
 🚲 Jenkins BikeStores SQL Analysis Project
-📌 Project Overview
 
+ 📌 Project Overview
 The Jenkins BikeStores Project is a SQL-based data analysis project performed on the BikeStores sample database.
-The goal of this project is to analyze sales, customers, products, staff performance, and pricing trends using advanced SQL queries.
+The objective of this project is to analyze sales performance, customer behavior, product trends, and staff efficiency
+using advanced SQL queries.
 
 This project demonstrates:
+- Advanced SQL querying
+- Joins and subqueries
+- Window functions
+- Aggregations and grouping
+- EXISTS and HAVING clauses
+- Real-world business problem solving
 
-Strong understanding of SQL joins
+---
 
-Use of window functions
-
-Aggregations & subqueries
-
-EXISTS, GROUP BY, HAVING
-
-Real-world business problem solving
-
-🗂️ Database Used
-
+ 🗂️ Database Used
 BikeStores Sample Database (MySQL)
 
-Schemas & Tables:
+ Tables
+- stores
+- categories
+- brands
+- products
+- customers
+- staffs
+- orders
+- order_items
+- stocks
 
-stores
+---
 
-categories
+ 🛠️ Tools & Technologies
+- MySQL 8.0
+- MySQL Workbench
+- SQL
+- GitHub
 
-brands
+---
 
-products
+🎯 Project Objectives
+This project answers the following business questions:
 
-customers
+1. Find the total number of products sold by each store along with the store name.
+2. Calculate the cumulative sum of quantities sold for each product over time.
+3. Find the product with the highest total sales (quantity × price) for each category.
+4. Find the customer who spent the most money on orders.
+5. Find the highest-priced product for each category name.
+6. Find the total number of orders placed by each customer per store.
+7. Find the names of staff members who have not made any sales.
+8. Find the top 3 most sold products in terms of quantity.
+9. Find the median value of the price list.
+10. List all products that have never been ordered (using EXISTS).
+11. List the names of staff members who have made more sales than the average number of sales by all staff members.
+12. Identify the customers who have ordered all types of products (from every category).
 
-staffs
+---
 
-orders
-
-order_items
-
-stocks
-
-🛠️ Tools & Technologies
-
-MySQL 8.0
-
-MySQL Workbench
-
-SQL (Advanced Queries)
-
-GitHub
-
-🎯 Objectives
-
-The project answers 12 real-world business questions, such as:
-
-Store-wise sales performance
-
-Best-selling products
-
-Customer spending behavior
-
-Staff sales performance
-
-Product pricing analysis
-
-📊 SQL Questions Solved
-1️⃣ Total products sold by each store
-
-Identifies how many items each store sold in total.
-
-2️⃣ Cumulative quantity sold per product over time
-
-Tracks product demand trends using window functions.
-
-3️⃣ Highest revenue-generating product in each category
-
-Finds the most profitable product per category.
-
-4️⃣ Customer who spent the most money
-
-Identifies the top customer based on total purchase value.
-
-5️⃣ Highest-priced product per category
-
-Helps understand premium products in each category.
-
-6️⃣ Orders placed by each customer per store
-
-Analyzes customer engagement across stores.
-
-7️⃣ Staff members with no sales
-
-Detects inactive or non-performing staff.
-
-8️⃣ Top 3 most sold products by quantity
-
-Highlights best-selling products.
-
-9️⃣ Median value of the product price list
-
-Calculates median product price using window functions.
-
-🔟 Products that were never ordered (EXISTS)
-
-Identifies dead stock or unpopular products.
-
-1️⃣1️⃣ Staff with sales above average
-
-Evaluates staff performance against the team average.
-
-1️⃣2️⃣ Customers who ordered from every category
-
-Finds loyal and diverse customers.
-
-🧠 Sample Query (Median Price – Question 9)
+ 🧠 Sample SQL Query (Median Price)
+```sql
 WITH temp AS (
   SELECT 
       list_price,
@@ -129,45 +74,42 @@ SELECT
       ROUND(AVG(CASE WHEN rn IN (cn / 2, cn / 2 + 1) THEN list_price END), 2)
   END AS median_price
 FROM temp;
-
 📈 Key Insights
 
-Certain stores significantly outperform others in product sales.
+Some stores significantly outperform others in total product sales.
 
 A small number of products generate the majority of revenue.
 
-Some staff members have zero sales, indicating training or allocation issues.
+Certain staff members have not made any sales, highlighting performance gaps.
 
-Median pricing helps understand overall product affordability.
+Median price analysis helps understand overall product pricing strategy.
 
-Loyal customers often purchase across multiple categories.
+Loyal customers tend to purchase products from all categories.
 
-🚀 How to Run This Project
+🚀 How to Run the Project
 
 Clone the repository
 
-Execute:
+Run the following SQL files in order:
 
 create objects.sql
 
 load data.sql
 
-Run the analysis queries in MySQL Workbench
+Execute the analysis queries using MySQL Workbench
 
-View results in tabular format
+📌 Future Enhancements
 
-📌 Future Improvements
+Build a Power BI or Tableau dashboard
 
-Create Power BI / Tableau dashboard
+Optimize queries using indexes
 
-Add indexes for performance optimization
+Add stored procedures
 
-Convert queries into stored procedures
-
-Add sales forecasting analysis
+Perform predictive sales analysis
 
 👤 Author
 
 Sanyam Sharma
-📊 Aspiring Data Analyst
-💻 Skills: SQL | Python | Power BI | Advanced Excel | AI/ML
+Aspiring Data Analyst
+Skills: SQL | Python | Power BI | Advanced Excel | AI/ML
